@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login | Evening Star FC</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="./admin.css">
+
+</head>
+
+
+<body class="login-page">
+
+
+<div class="login-box">
+
+
+<a href="./index.html"
+   class="back-button">
+
+   ← Back to Website
+
+</a>
+
+
+<div class="login-logo">
+
+<img src="./20260908_001844.png"
+     alt="Evening Star FC">
+
+</div>
+
+
+<span class="login-small">
+EVENING STAR FC
+</span>
+
+
+<h1>
+ADMIN
+<span>LOGIN</span>
+</h1>
+
+
+<p>
+Login with your Firebase admin account.
+</p>
+
+
+<form id="loginForm">
+
+
+<label>
+
+Email
+
+<input
+  id="email"
+  type="email"
+  placeholder="Enter admin email"
+  autocomplete="username"
+  required>
+
+</label>
+
+
+<label>
+
+Password
+
+<input
+  id="password"
+  type="password"
+  placeholder="Enter password"
+  autocomplete="current-password"
+  required>
+
+</label>
+
+
+<button
+  type="submit"
+  class="admin-button">
+
+LOGIN
+
+<span>→</span>
+
+</button>
+
+
+<div
+  id="loginError"
+  class="login-error">
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyC9xsw3cQ8-KReJEnmg-rHpsN68xCPnYz0",
+
+  authDomain:
+    "eveninig-star-fc.firebaseapp.com",
+
+  projectId:
+    "eveninig-star-fc",
+
+  storageBucket:
+    "eveninig-star-fc.firebasestorage.app",
+
+  messagingSenderId:
+    "992780020158",
+
+  appId:
+    "1:992780020158:web:9dd346b24e0eeb4a82f1ef",
+
+  databaseURL:
+    "https://eveninig-star-fc-default-rtdb.firebaseio.com"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+
+const auth =
+  getAuth(app);
+
+
+document
+  .getElementById("loginForm")
+  .addEventListener(
+    "submit",
+    async function(event){
+
+      event.preventDefault();
+
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+
+      const password =
+        document
+          .getElementById("password")
+          .value;
+
+
+      const errorBox =
+        document
+          .getElementById("loginError");
+
+
+      errorBox.textContent =
+        "";
+
+
+      try{
+
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+        sessionStorage.setItem(
+          "esfc_admin_login",
+          "true"
+        );
+
+
+        window.location.href =
+          "./admin.html";
+
+
+      }catch(error){
+
+        console.error(error);
+
+
+        errorBox.textContent =
+          "Incorrect email or password.";
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

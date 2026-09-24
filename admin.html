@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel | Evening Star FC</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="./admin.css">
+
+</head>
+
+
+<body>
+
+
+<script>
+
+if(
+  sessionStorage.getItem(
+    "esfc_admin_login"
+  ) !== "true"
+){
+
+  window.location.href =
+    "./admin-login.html";
+
+}
+
+</script>
+
+
+<!-- ================================
+     ADMIN HEADER
+================================ -->
+
+<header class="admin-header">
+
+  <div class="admin-nav">
+
+
+    <a href="./index.html"
+       class="admin-brand">
+
+      <img
+        src="./20260908_001844.png"
+        alt="Evening Star FC Logo">
+
+      <div>
+
+        <strong>
+          EVENING STAR FC
+        </strong>
+
+        <small>
+          ADMIN PANEL
+        </small>
+
+      </div>
+
+    </a>
+
+
+    <div>
+
+      <a
+        href="./index.html"
+        class="view-site">
+
+        View Site
+
+      </a>
+
+
+      <button
+        id="logout"
+        class="logout">
+
+        Logout
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+</header>
+
+
+
+<!-- ================================
+     MAIN
+================================ -->
+
+<main class="admin-container">
+
+
+  <!-- PAGE TITLE -->
+
+  <div class="admin-title">
+
+    <div>
+
+      <span>
+        CONTROL CENTER
+      </span>
+
+      <h1>
+        TEAM
+        <span>MANAGER</span>
+      </h1>
+
+    </div>
+
+
+    <div id="saveStatus">
+      Ready
+    </div>
+
+  </div>
+
+
+
+  <!-- ================================
+       PLAYER COUNT
+  ================================= -->
+
+  <section class="admin-card">
+
+    <div class="card-icon">
+      👥
+    </div>
+
+
+    <div class="count-text">
+
+      <small>
+        TOTAL PLAYERS
+      </small>
+
+      <strong id="countPreview">
+        16
+      </strong>
+
+    </div>
+
+
+    <input
+      id="totalPlayers"
+      type="number"
+      min="0"
+      max="20"
+      value="16">
+
+  </section>
+
+
+
+  <!-- ================================
+       MATCH MANAGEMENT
+  ================================= -->
+
+  <section class="admin-card">
+
+    <div class="card-content">
+
+      <span>
+        MATCH MANAGEMENT
+      </span>
+
+      <h2>
+        MATCH <b>UPDATE</b>
+      </h2>
+
+      <p>
+        Click the button below to update
+        today's match notice.
+      </p>
+
+    </div>
+
+
+    <button
+      id="openMatch"
+      class="admin-button">
+
+      MATCH UPDATE
+
+      <span>
+        →
+      </span>
+
+    </button>
+
+  </section>
+
+
+
+  <!-- ================================
+       MATCH UPDATE PANEL
+  ================================= -->
+
+  <section
+    id="matchPanel"
+    class="admin-card match-panel"
+    style="display:none;">
+
+    <div class="card-content">
+
+      <span>
+        MATCHDAY NOTICE
+      </span>
+
+      <h2>
+        TODAY'S <b>NOTICE</b>
+      </h2>
+
+      <p>
+        এই নোটিশ Home Page-এ banner হিসেবে
+        দেখাবে।
+      </p>
+
+
+      <textarea
+        id="matchNotice"
+        rows="4"
+        placeholder="Example: Today at 5:00 PM — Evening Star FC vs ...">
+      </textarea>
+
+
+      <div class="panel-buttons">
+
+        <button
+          id="saveMatch"
+          class="admin-button">
+
+          SAVE MATCH
+
+          <span>
+            ✓
+          </span>
+
+        </button>
+
+
+        <button
+          id="closeMatch"
+          class="cancel-button">
+
+          CLOSE
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================================
+       SUSPENDED PLAYERS
+  ================================= -->
+
+  <section class="admin-card">
+
+    <div class="card-content full">
+
+      <span>
+        DISCIPLINARY MANAGEMENT
+      </span>
+
+      <h2>
+        SUSPENDED <b>PLAYERS</b>
+      </h2>
+
+      <p>
+        এখান থেকে suspended player যোগ বা remove করতে পারবে।
+        যোগ করার পর player-টি public website-এ দেখা যাবে।
+      </p>
+
+
+      <div style="
+        margin-top:25px;
+        display:grid;
+        gap:15px;
+      ">
+
+
+        <!-- NAME -->
+
+        <div>
+
+          <label
+            for="suspendedName"
+            style="
+              display:block;
+              margin-bottom:7px;
+            ">
+
+            PLAYER NAME
+
+          </label>
+
+
+          <input
+            id="suspendedName"
+            type="text"
+            placeholder="Example: Tiswan Chy">
+
+        </div>
+
+
+
+        <!-- POSITION -->
+
+        <div>
+
+          <label
+            for="suspendedPosition"
+            style="
+              display:block;
+              margin-bottom:7px;
+            ">
+
+            POSITION
+
+          </label>
+
+
+          <input
+            id="suspendedPosition"
+            type="text"
+            placeholder="Example: CENTER BACK">
+
+        </div>
+
+
+
+        <!-- JERSEY -->
+
+        <div>
+
+          <label
+            for="suspendedJersey"
+            style="
+              display:block;
+              margin-bottom:7px;
+            ">
+
+            JERSEY NUMBER
+
+          </label>
+
+
+          <input
+            id="suspendedJersey"
+            type="text"
+            placeholder="Example: 18">
+
+        </div>
+
+
+
+        <!-- PHOTO -->
+
+        <div>
+
+          <label
+            for="suspendedPhoto"
+            style="
+              display:block;
+              margin-bottom:7px;
+            ">
+
+            PLAYER PHOTO
+
+          </label>
+
+
+          <input
+            id="suspendedPhoto"
+            type="file"
+            accept="image/*">
+
+
+          <img
+            id="suspendedPhotoPreview"
+            src=""
+            alt="Photo Preview"
+            style="
+              display:none;
+              width:120px;
+              height:120px;
+              object-fit:cover;
+              border-radius:12px;
+              margin-top:12px;
+            ">
+
+        </div>
+
+
+
+        <!-- DATE -->
+
+        <div>
+
+          <label
+            for="suspendedDate"
+            style="
+              display:block;
+              margin-bottom:7px;
+            ">
+
+            SUSPENSION DATE
+
+          </label>
+
+
+          <input
+            id="suspendedDate"
+            type="date">
+
+        </div>
+
+
+
+        <!-- REASON -->
+
+        <div>
+
+          <label
+            for="suspendedReason"
+            style="
+              display:block;
+              margin-bottom:7px;
+            ">
+
+            REASON
+
+          </label>
+
+
+          <textarea
+            id="suspendedReason"
+            rows="4"
+            placeholder="Example: Suspended for disciplinary reasons.">
+          </textarea>
+
+        </div>
+
+
+
+        <!-- ADD -->
+
+        <button
+          id="addSuspended"
+          class="admin-button"
+          type="button">
+
+          ADD SUSPENDED PLAYER
+
+          <span>
+            +
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+
+      <!-- CURRENT LIST -->
+
+      <div style="
+        margin-top:30px;
+      ">
+
+        <span>
+          CURRENT SUSPENDED PLAYERS
+        </span>
+
+
+        <div
+          id="suspendedAdminList"
+          style="
+            margin-top:15px;
+          ">
+
+          <!-- Firebase players will appear here -->
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================================
+       BOTTOM ACTIONS
+  ================================= -->
+
+  <div class="bottom-actions">
+
+
+    <button
+      id="saveAll"
+      class="admin-button big">
+
+      SAVE ALL CHANGES
+
+      <span>
+        ✓
+      </span>
+
+    </button>
+
+
+    <button
+      id="resetData"
+      class="reset-button">
+
+      RESET DATA
+
+    </button>
+
+
+  </div>
+
+
+</main>
+
+
+
+<!-- ================================
+     ADMIN JAVASCRIPT
+================================ -->
+
+<script
+  type="module"
+  src="./admin.js">
+</script>
+
+
+</body>
+
+</html>
