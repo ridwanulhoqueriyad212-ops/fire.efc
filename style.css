@@ -1194,6 +1194,8 @@ nav .admin-link{
   margin:0 auto !important;
 
 }
+
+
 /* =========================================
    ABOUT
 ========================================= */
@@ -1708,200 +1710,45 @@ nav .admin-link{
 
 
 /* =========================================
-   PLAYER SIZE UNIFORMITY
-   ========================================= */
-
-.players-grid .player-card{
-  display:flex;
-  flex-direction:column;
-  height:430px;
-}
-
-.players-grid .player-photo{
-  flex:0 0 330px;
-  height:330px;
-}
-
-.players-grid .player-info{
-  flex:1;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-/* =========================================
-   GOOGLE SEARCH
-   ========================================= */
-
-.search-section{
-  padding:28px 0 10px;
-  background:transparent;
-}
-
-.search-heading{
-  margin-bottom:16px;
-}
-
-.search-heading > span{
-  color:var(--green);
-  font-family:"Barlow Condensed",sans-serif;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:3px;
-}
-
-.search-heading h2{
-  margin-top:5px;
-  font-family:"Barlow Condensed",sans-serif;
-  font-size:36px;
-  line-height:1;
-  font-weight:900;
-}
-
-.search-heading h2 strong{
-  color:var(--green);
-}
-
-/* Google CSE theme */
-.search-section .gsc-control-cse{
-  padding:0 !important;
-  border:0 !important;
-  background:transparent !important;
-  font-family:"Inter",sans-serif !important;
-}
-
-.search-section .gsc-control-wrapper-cse,
-.search-section .gsc-table-result{
-  background:transparent !important;
-}
-
-.search-section .gsc-input-box{
-  background:rgba(255,255,255,.035) !important;
-  border:1px solid var(--line) !important;
-  border-radius:9px !important;
-  box-shadow:none !important;
-}
-
-.search-section input.gsc-input{
-  color:var(--white) !important;
-  background:transparent !important;
-}
-
-.search-section .gsc-search-button-v2{
-  min-width:48px !important;
-  height:40px !important;
-  margin-left:7px !important;
-  padding:8px 13px !important;
-  border:0 !important;
-  border-radius:8px !important;
-  background:var(--green) !important;
-}
-
-.search-section .gsc-search-button-v2 svg{
-  fill:#07100a !important;
-}
-
-.search-section .gsc-results{
-  margin-top:15px !important;
-}
-
-.search-section .gs-title,
-.search-section .gs-title b{
-  color:var(--green) !important;
-}
-
-.search-section .gs-webResult .gs-snippet,
-.search-section .gsc-result-info,
-.search-section .gsc-orderby-label{
-  color:var(--muted) !important;
-}
-
-.search-section .gsc-webResult.gsc-result,
-.search-section .gsc-result{
-  border-color:var(--line) !important;
-}
-
-@media(max-width:650px){
-  .players-grid .player-card{
-    height:434px;
-  }
-
-  .players-grid .player-photo{
-    flex-basis:350px;
-    height:350px;
-  }
-
-  .search-section{
-    padding:22px 0 5px;
-  }
-
-  .search-heading h2{
-    font-size:32px;
-  }
-}
-
-@media(max-width:400px){
-  .players-grid .player-card{
-    height:404px;
-  }
-
-  .players-grid .player-photo{
-    flex-basis:320px;
-    height:320px;
-  }
-}
-/* =========================================
-   FIX PLAYER 17 / 18 / 19
-   HTML TOUCH করা লাগবে না
+   PLAYER 17 / 18 / 19
+   SAME SIZE AS PLAYER 01-16
+   HTML CHANGE লাগবে না
 ========================================= */
 
+/* Desktop: 01-16 = 3 columns */
 @media(min-width:901px){
 
   .players-section > .player-card{
-    display:inline-block;
-    vertical-align:top;
 
-    width:calc((min(1180px, 92vw) - 36px) / 3);
+    width:calc((min(1180px,92vw) - 36px) / 3) !important;
 
-    margin-top:18px;
-    margin-right:18px;
-  }
-
-  .players-section > .player-card:nth-of-type(4){
-    margin-right:0;
   }
 
 }
 
 
+/* Tablet: 01-16 = 2 columns */
 @media(min-width:651px) and (max-width:900px){
 
   .players-section > .player-card{
-    display:inline-block;
-    vertical-align:top;
 
-    width:calc((92vw - 18px) / 2);
+    width:calc((92% - 18px) / 2) !important;
 
-    margin-top:18px;
-    margin-right:18px;
-  }
-
-  .players-section > .player-card:nth-of-type(3){
-    margin-right:0;
   }
 
 }
 
 
+/* Mobile: 01-16 = 1 column */
 @media(max-width:650px){
 
   .players-section > .player-card{
-    display:block;
 
-    width:92%;
+    width:92% !important;
 
-    margin:18px auto 0;
+    margin-left:auto !important;
+    margin-right:auto !important;
+
   }
 
-}aaaaa
+   }
