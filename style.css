@@ -1181,6 +1181,7 @@ nav .admin-link{
 
 }
 
+
 /* TikTok Embed */
 
 .video-card .tiktok-embed{
@@ -1707,48 +1708,3 @@ nav .admin-link{
   }
 
 }
-
-
-/* =========================================
-   PLAYER 17 / 18 / 19
-   SAME SIZE AS PLAYER 01-16
-   HTML CHANGE লাগবে না
-========================================= */
-
-/* Desktop: 01-16 = 3 columns */
-@media(min-width:901px){
-
-  .players-section > .player-card{
-
-    width:calc((min(1180px,92vw) - 36px) / 3) !important;
-
-  }
-
-}
-
-
-/* Tablet: 01-16 = 2 columns */
-@media(min-width:651px) and (max-width:900px){
-
-  .players-section > .player-card{
-
-    width:calc((92% - 18px) / 2) !important;
-
-  }
-
-}
-
-
-/* Mobile: 01-16 = 1 column */
-@media(max-width:650px){
-
-  .players-section > .player-card{
-
-    width:92% !important;
-
-    margin-left:auto !important;
-    margin-right:auto !important;
-
-  }
-
-   }
