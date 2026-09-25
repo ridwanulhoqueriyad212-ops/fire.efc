@@ -1851,3 +1851,57 @@ nav .admin-link{
     height:320px;
   }
 }
+/* =========================================
+   FIX PLAYER 17 / 18 / 19
+   HTML TOUCH করা লাগবে না
+========================================= */
+
+@media(min-width:901px){
+
+  .players-section > .player-card{
+    display:inline-block;
+    vertical-align:top;
+
+    width:calc((min(1180px, 92vw) - 36px) / 3);
+
+    margin-top:18px;
+    margin-right:18px;
+  }
+
+  .players-section > .player-card:nth-of-type(4){
+    margin-right:0;
+  }
+
+}
+
+
+@media(min-width:651px) and (max-width:900px){
+
+  .players-section > .player-card{
+    display:inline-block;
+    vertical-align:top;
+
+    width:calc((92vw - 18px) / 2);
+
+    margin-top:18px;
+    margin-right:18px;
+  }
+
+  .players-section > .player-card:nth-of-type(3){
+    margin-right:0;
+  }
+
+}
+
+
+@media(max-width:650px){
+
+  .players-section > .player-card{
+    display:block;
+
+    width:92%;
+
+    margin:18px auto 0;
+  }
+
+}aaaaa
